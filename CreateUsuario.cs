@@ -16,14 +16,6 @@ namespace My.Function
             _logger = logger;
         }
 
-        /*
-        [Function("ApiFunc")]
-        public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
-        {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
-            return new OkObjectResult("Welcome to Azure Functions!");
-        }*/
-
         [Function("Create")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "Create")] HttpRequest req,
@@ -32,7 +24,7 @@ namespace My.Function
                 parameters: "@documentoidentidad={Query.DocId},@nombres={Query.Nombre},@telefono={Query.Telefono},@correo={Query.Correo},@ciudad={Query.Ciudad}", 
                 connectionStringSetting: "ConnectionString")] IEnumerable<Usuario> usuario) 
         {
-            _logger.LogInformation("C# HTTP trigger function processed a GetAll request.");
+            _logger.LogInformation("C# HTTP trigger function processed a Create request.");
             return new OkObjectResult(usuario);
         }
     }

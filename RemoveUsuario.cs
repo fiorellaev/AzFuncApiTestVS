@@ -16,14 +16,6 @@ namespace My.Function
             _logger = logger;
         }
 
-        /*
-        [Function("ApiFunc")]
-        public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
-        {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
-            return new OkObjectResult("Welcome to Azure Functions!");
-        }*/
-
         [Function("Remove")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "Remove")] HttpRequest req,
